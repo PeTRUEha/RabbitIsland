@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://df5o7dpavn8t2"]
+
+[ext_resource type="Texture2D" uid="uid://covwvwtk3jvib" path="res://Assets/Plants/white carrot.png" id="1_f5bra"]
+[ext_resource type="Script" path="res://Scenes/carrot.gd" id="1_lbues"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5j4s3"]
+radius = 1.0
+
+[node name="Carrot" type="StaticBody2D"]
+scale = Vector2(1.5, 1.5)
+collision_layer = 8
+collision_mask = 10
+script = ExtResource("1_lbues")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_f5bra")
+offset = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5j4s3")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
