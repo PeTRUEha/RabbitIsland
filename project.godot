@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://Globals/globals.gd"
+
 [input]
 
 Up={
@@ -47,7 +51,7 @@ Attack={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Rabbits"
-2d_physics/layer_3="Environment"
+2d_physics/layer_3="Boundaries"
 2d_physics/layer_4="Carrots"
 
 [rendering]
