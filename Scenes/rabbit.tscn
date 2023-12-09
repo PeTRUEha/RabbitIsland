@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Scenes/rabbit.gd" id="1_87t44"]
 [ext_resource type="Texture2D" uid="uid://bprrufhd88fir" path="res://Assets/Animals/MinifolksForestAnimals/Outline/MiniBunny.png" id="1_k6cj4"]
 [ext_resource type="Script" path="res://Nodes/state_machine.gd" id="1_prml3"]
-[ext_resource type="Script" path="res://Nodes/food_searching_state.gd" id="3_amntr"]
-[ext_resource type="Script" path="res://Nodes/food_chasing_state.gd" id="4_8ev3y"]
-[ext_resource type="Script" path="res://Nodes/eating_state.gd" id="5_4fa8h"]
-[ext_resource type="Script" path="res://Nodes/running_away_state.gd" id="7_saysr"]
+[ext_resource type="Script" path="res://Nodes/States/food_searching_state.gd" id="4_6x8lj"]
+[ext_resource type="Script" path="res://Nodes/States/food_chasing_state.gd" id="5_05awq"]
+[ext_resource type="Script" path="res://Nodes/States/eating_state.gd" id="6_marp4"]
+[ext_resource type="Script" path="res://Nodes/States/running_away_state.gd" id="7_tp3e0"]
 
 [sub_resource type="Animation" id="Animation_2up4p"]
 length = 0.001
@@ -134,16 +134,16 @@ shape = SubResource("CircleShape2D_68h3m")
 script = ExtResource("1_prml3")
 
 [node name="FoodSearchingState" type="Node" parent="StateMachine"]
-script = ExtResource("3_amntr")
+script = ExtResource("4_6x8lj")
 
 [node name="FoodChasingState" type="Node" parent="StateMachine"]
-script = ExtResource("4_8ev3y")
+script = ExtResource("5_05awq")
 
 [node name="EatingState" type="Node" parent="StateMachine"]
-script = ExtResource("5_4fa8h")
+script = ExtResource("6_marp4")
 
 [node name="RunningAwayState" type="Node" parent="StateMachine"]
-script = ExtResource("7_saysr")
+script = ExtResource("7_tp3e0")
 
 [node name="BoundaryDetector" type="Area2D" parent="."]
 collision_layer = 0
