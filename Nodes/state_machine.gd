@@ -24,7 +24,6 @@ func _physics_process(delta):
 	current_state.physics_process(delta)
 
 func transition_state(new_state_name: String, args: Dictionary = {}):
-	print(new_state_name)
 	current_state.deactivate()
 	current_state = states[new_state_name.to_snake_case()]
 	current_state.activate(args)

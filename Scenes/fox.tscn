@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2sqdt2iuysy2"]
+[gd_scene load_steps=11 format=3 uid="uid://d2sqdt2iuysy2"]
 
 [ext_resource type="Texture2D" uid="uid://bcoa86iwopwuj" path="res://Assets/Animals/Fox Sprite Sheet.png" id="1_4ve26"]
 [ext_resource type="Script" path="res://Scenes/fox.gd" id="1_pa4se"]
@@ -77,10 +77,10 @@ tracks/1/path = NodePath(".:speed")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0001, 0.2, 0.3, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 12.5533, 1, 0.933033, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.55, 0.6, 0.85, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 2.63902, 1),
 "update": 0,
-"values": [20.0, 200.0, 0.0, 400.0, 10.0, 10.0]
+"values": [200.0, 30.0, 300.0, 300.0, 30.0, 10.0, 200.0]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -89,11 +89,14 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 1.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.2, 0.6, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
 "method": &"block_user_input"
+}, {
+"args": [],
+"method": &"attack_area"
 }, {
 "args": [],
 "method": &"end_jump"
@@ -126,9 +129,14 @@ _data = {
 "walking": SubResource("Animation_ucwr2")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hpnbx"]
+radius = 5.71
+height = 18.85
+
 [node name="Fox" type="CharacterBody2D"]
 collision_mask = 4
 script = ExtResource("1_pa4se")
+speed = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_17p6s")
@@ -152,3 +160,11 @@ autoplay = "idle 2"
 zoom = Vector2(3, 3)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hpnbx")

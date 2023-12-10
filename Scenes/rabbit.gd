@@ -24,6 +24,9 @@ func move(direction_vector: Vector2, delta):
 		
 	move_and_slide()
 
+func die():
+	$StateMachine.transition_state("DyingState")
+
 
 func _on_predator_detector_body_entered(body):
 	$StateMachine.transition_state("running_away_state", {'treat': body})

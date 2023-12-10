@@ -53,6 +53,12 @@ func end_jump():
 	state=WALKING
 	unblock_user_input()
 
+func attack_area():
+	var preys_hit: Array = $AttackArea.get_overlapping_bodies()
+	for prey in preys_hit:
+		if prey.has_method("die"):
+			prey.die()
+
 func block_user_input(duration: float = 1000):
 	is_user_input_blocked=true
 	$Timer.connect("timeout", unblock_user_input)
