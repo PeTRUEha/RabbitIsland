@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://btbv0eshax4m0"]
+
+[ext_resource type="Script" path="res://Nodes/carrot_generator.gd" id="1_fpclh"]
+
+[node name="CarrotGenerator" type="Node2D"]
+script = ExtResource("1_fpclh")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
