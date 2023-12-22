@@ -16761,9 +16761,6 @@ layer_0/tile_data = PackedInt32Array(-65536, 720899, 20, -65535, 655363, 16, -65
 [node name="Rabbit" parent="." instance=ExtResource("2_keywn")]
 position = Vector2(130, 113)
 
-[node name="Carrot" parent="." instance=ExtResource("3_cwfcj")]
-position = Vector2(42, 27)
-
 [node name="Fox" parent="." instance=ExtResource("3_hkp15")]
 position = Vector2(-97, 96)
 scale = Vector2(2, 2)
@@ -16771,3 +16768,6 @@ scale = Vector2(2, 2)
 [node name="RabbitHole" parent="." instance=ExtResource("5_7rd2e")]
 
 [node name="CarrotGenerator" parent="." instance=ExtResource("6_vvysu")]
+
+[node name="Carrot" parent="CarrotGenerator" instance=ExtResource("3_cwfcj")]
+position = Vector2(42, 27)

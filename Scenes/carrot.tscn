@@ -4,16 +4,18 @@
 [ext_resource type="Script" path="res://Scenes/carrot.gd" id="1_lbues"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5j4s3"]
-radius = 1.0
+radius = 4.0
 
 [node name="Carrot" type="StaticBody2D"]
+y_sort_enabled = true
 scale = Vector2(1.5, 1.5)
 collision_layer = 8
 collision_mask = 10
 script = ExtResource("1_lbues")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -4)
+y_sort_enabled = true
+position = Vector2(0, -5.33333)
 texture = ExtResource("1_f5bra")
 offset = Vector2(0, -1)
 

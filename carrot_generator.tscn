@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Nodes/carrot_generator.gd" id="1_fpclh"]
 
 [node name="CarrotGenerator" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_fpclh")
 
 [node name="Timer" type="Timer" parent="."]
