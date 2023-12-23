@@ -21,17 +21,15 @@ func _ready():
 func enter(args: Dictionary = {}):
 	target = args['target']
 	target.be_eaten()
-	create_tween().tween_callback(finish_eating.bind(target)).set_delay(host.eating_time)
+	var tween = create_tween().tween_callback(finish_eating).set_delay(host.eating_time)
 	
-func finish_eating(carrot: Carrot):
-	if not is_instance_valid(target):
-		return
-
-	target.remove_eater()
-	if active:
+func finish_eating():
+	if active and is_instance_valid(target):
 		target.decrease_food(host.eating_size)
 		host.fullness += host.eating_size
-		state_transitioned.emit('food_searching_state')
+		transition_state("thinking_state")
+	elif active and not is_instance_valid(target):
+		transition_state("thinking_state")
 	
 func process(delta):
 	animation_player.play("eating")

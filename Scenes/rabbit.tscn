@@ -1,11 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://ci3nbgy5i0f8h"]
+[gd_scene load_steps=21 format=3 uid="uid://ci3nbgy5i0f8h"]
 
 [ext_resource type="Script" path="res://Scenes/rabbit.gd" id="1_87t44"]
 [ext_resource type="Texture2D" uid="uid://bprrufhd88fir" path="res://Assets/Animals/MinifolksForestAnimals/Outline/MiniBunny.png" id="1_k6cj4"]
 [ext_resource type="Script" path="res://Nodes/state_machine.gd" id="1_prml3"]
-[ext_resource type="Script" path="res://Nodes/States/food_searching_state.gd" id="4_6x8lj"]
+[ext_resource type="Script" path="res://Nodes/States/thinking_state.gd" id="4_mlxjc"]
 [ext_resource type="Script" path="res://Nodes/States/food_chasing_state.gd" id="5_05awq"]
+[ext_resource type="Script" path="res://Nodes/States/waiting_state.gd" id="5_oj7o4"]
 [ext_resource type="Script" path="res://Nodes/States/eating_state.gd" id="6_marp4"]
+[ext_resource type="Script" path="res://Nodes/States/wandering_state.gd" id="6_tcnj4"]
 [ext_resource type="Script" path="res://Nodes/States/running_away_state.gd" id="7_tp3e0"]
 [ext_resource type="Script" path="res://Nodes/States/dying_state.gd" id="8_f5iss"]
 
@@ -102,8 +104,9 @@ _data = {
 "walking": SubResource("Animation_d1vuh")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_moxc6"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1y50x"]
+radius = 1.5
+height = 10.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_teqon"]
 radius = 50.0
@@ -121,7 +124,7 @@ collision_mask = 30
 script = ExtResource("1_87t44")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -14)
 texture = ExtResource("1_k6cj4")
 hframes = 4
 vframes = 4
@@ -133,13 +136,20 @@ libraries = {
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_moxc6")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1y50x")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("1_prml3")
 
-[node name="FoodSearchingState" type="Node" parent="StateMachine"]
-script = ExtResource("4_6x8lj")
+[node name="ThinkingState" type="Node" parent="StateMachine"]
+script = ExtResource("4_mlxjc")
+
+[node name="WaitingState" type="Node" parent="StateMachine"]
+script = ExtResource("5_oj7o4")
+
+[node name="WanderingState" type="Node" parent="StateMachine"]
+script = ExtResource("6_tcnj4")
 
 [node name="FoodChasingState" type="Node" parent="StateMachine"]
 script = ExtResource("5_05awq")
@@ -154,6 +164,7 @@ script = ExtResource("7_tp3e0")
 script = ExtResource("8_f5iss")
 
 [node name="FoodDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -161,6 +172,7 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_teqon")
 
 [node name="PredatorDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PredatorDetector"]
@@ -172,6 +184,8 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryDetector"]
 shape = SubResource("CircleShape2D_1uy43")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="body_entered" from="PredatorDetector" to="." method="_on_predator_detector_body_entered"]
 [connection signal="body_shape_entered" from="BoundaryDetector" to="." method="_on_boundary_detector_body_shape_entered"]

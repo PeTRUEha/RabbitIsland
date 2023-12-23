@@ -8,14 +8,12 @@ extends Node2D
 func _ready():
 	var tilemap: TileMap = get_node("/root/Level/Landscape")
 	var tilemap_rect = tilemap.get_used_rect()
-	print(tilemap_rect)
 	var top_left = tilemap.map_to_local(tilemap_rect.position)
 	var bottom_right = tilemap.map_to_local(
 		tilemap_rect.position + tilemap_rect.size - Vector2i(1, 1)
 	)
 	x_range = Vector2(top_left.x, bottom_right.x)
 	y_range = Vector2(top_left.y, bottom_right.y)
-	print(x_range, y_range)
 
 
 func _on_timer_timeout():
@@ -26,9 +24,7 @@ func _on_timer_timeout():
 	#var result = get_world().direct_space_state.intersect_point(query)
 	var world = get_world_2d()
 	var bodies_at_point = world.direct_space_state.intersect_point(query)
-	print(bodies_at_point)
 	if not bodies_at_point:
 		var carrot: Carrot = carrot_resource.instantiate()
 		carrot.position = Vector2(x_coord, y_coord)
 		add_child(carrot)
-		print("carrot at ", x_coord, " ", y_coord)

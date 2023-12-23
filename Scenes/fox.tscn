@@ -132,7 +132,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hpnbx"]
-radius = 5.71
+radius = 7.0
 height = 18.85
 
 [node name="Fox" type="CharacterBody2D"]
@@ -162,7 +162,6 @@ libraries = {
 autoplay = "idle 2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 zoom = Vector2(3, 3)
 
 [node name="Timer" type="Timer" parent="."]

@@ -13,8 +13,9 @@ func _ready():
 	
 	if not initial_state:
 		initial_state = states.values()[0]
-	initial_state.activate()
 	current_state=initial_state
+	initial_state.activate()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -25,5 +26,7 @@ func _physics_process(delta):
 
 func transition_state(new_state_name: String, args: Dictionary = {}):
 	current_state.deactivate()
+	#print(current_state, " -> ", new_state_name)
 	current_state = states[new_state_name.to_snake_case()]
 	current_state.activate(args)
+	

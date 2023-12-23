@@ -12,6 +12,7 @@ func _ready():
 
 func be_eaten():
 	eaters += 1
+	create_tween().tween_callback(remove_eater).set_delay(one_bite_time)
 
 func remove_eater():
 	eaters -= 1

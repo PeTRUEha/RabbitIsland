@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/carrot.gd" id="1_lbues"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5j4s3"]
-radius = 4.0
+radius = 2.66667
 
 [node name="Carrot" type="StaticBody2D"]
 y_sort_enabled = true
