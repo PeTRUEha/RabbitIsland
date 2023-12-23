@@ -37,7 +37,6 @@ func process(delta):
 		
 	var boundary_evasion = host.get_boundary_evasion()
 	var movement_direction = treat_to_host_vector + boundary_evasion
-	print(boundary_evasion)
 	host.move(movement_direction, delta)
 	animation_player.play("walking")
 

@@ -29,7 +29,6 @@ func get_boundary_evasion() -> Vector2:
 	var boundary_evasion = Vector2()
 	if boundary_detected:
 		var tile_map: TileMap = boundary_detected[0]
-		print(len(boundary_shapes_rid))
 		for rid in boundary_shapes_rid:
 			var coords = tile_map.to_global(tile_map.map_to_local(tile_map.get_coords_for_body_rid(rid)))
 			var boundary_to_self_vector = global_position - coords
