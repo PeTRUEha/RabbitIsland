@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Rabbit
 
 @export var speed = 100
 @export var acceleration = 2.5
@@ -7,8 +8,10 @@ extends CharacterBody2D
 @export var eating_size = 5
 @export var boundary_evasion_coefficient = 2000
 
-var fullness = 0
+@export var fullness = 0
 var boundary_shapes_rid: Array[RID]
+
+signal ready_to_mate(rabbit: Rabbit, rabbit_hole: RabbitHole)
 
 func move(direction_vector: Vector2, delta):
 	var direction = direction_vector.normalized() 

@@ -15,9 +15,8 @@ script = ExtResource("1_lbues")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -5.33333)
 texture = ExtResource("1_f5bra")
-offset = Vector2(0, -1)
+offset = Vector2(0, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5j4s3")

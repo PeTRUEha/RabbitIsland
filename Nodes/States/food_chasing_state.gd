@@ -27,7 +27,7 @@ func process(delta):
 		if not carrots:
 			transition_state("waiting_state")
 			return
-		target = Globals.get_closest_body(host, carrots)
+		target = Globals.get_closest_node(host, carrots)
 	host.move(target.global_position - host.global_position, delta)
 	animation_player.play("walking")
 	

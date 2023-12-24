@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://ci3nbgy5i0f8h"]
+[gd_scene load_steps=22 format=3 uid="uid://ci3nbgy5i0f8h"]
 
 [ext_resource type="Script" path="res://Scenes/rabbit.gd" id="1_87t44"]
 [ext_resource type="Texture2D" uid="uid://bprrufhd88fir" path="res://Assets/Animals/MinifolksForestAnimals/Outline/MiniBunny.png" id="1_k6cj4"]
 [ext_resource type="Script" path="res://Nodes/state_machine.gd" id="1_prml3"]
+[ext_resource type="Script" path="res://Scenes/mating_state.gd" id="4_b6q6b"]
 [ext_resource type="Script" path="res://Nodes/States/thinking_state.gd" id="4_mlxjc"]
 [ext_resource type="Script" path="res://Nodes/States/food_chasing_state.gd" id="5_05awq"]
 [ext_resource type="Script" path="res://Nodes/States/waiting_state.gd" id="5_oj7o4"]
@@ -118,14 +119,15 @@ radius = 70.0
 radius = 50.0
 
 [node name="Rabbit" type="CharacterBody2D"]
+y_sort_enabled = true
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 30
 script = ExtResource("1_87t44")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -14)
 texture = ExtResource("1_k6cj4")
+offset = Vector2(0, -14)
 hframes = 4
 vframes = 4
 
@@ -136,6 +138,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1y50x")
 
@@ -144,6 +147,9 @@ script = ExtResource("1_prml3")
 
 [node name="ThinkingState" type="Node" parent="StateMachine"]
 script = ExtResource("4_mlxjc")
+
+[node name="MatingState" type="Node" parent="StateMachine"]
+script = ExtResource("4_b6q6b")
 
 [node name="WaitingState" type="Node" parent="StateMachine"]
 script = ExtResource("5_oj7o4")
@@ -179,6 +185,7 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_68h3m")
 
 [node name="BoundaryDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4
 
@@ -186,6 +193,7 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_1uy43")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 
 [connection signal="body_entered" from="PredatorDetector" to="." method="_on_predator_detector_body_entered"]
 [connection signal="body_shape_entered" from="BoundaryDetector" to="." method="_on_boundary_detector_body_shape_entered"]

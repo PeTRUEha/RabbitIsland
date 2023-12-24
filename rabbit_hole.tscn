@@ -1,21 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkdn8lncemmef"]
+[gd_scene load_steps=4 format=3 uid="uid://dkdn8lncemmef"]
 
+[ext_resource type="Script" path="res://rabbit_hole.gd" id="1_hek86"]
 [ext_resource type="Texture2D" uid="uid://fc21tsb5cm1v" path="res://Assets/rabbit hole 2.png" id="1_vm4i8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kl0uw"]
 radius = 18.0
 height = 46.0
 
-[node name="StaticBody2D" type="StaticBody2D"]
-collision_layer = 16
+[node name="StaticBody2D" type="StaticBody2D" groups=["rabbit_holes"]]
+collision_layer = 48
 collision_mask = 15
+script = ExtResource("1_hek86")
 
 [node name="RabbitHole" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
 scale = Vector2(2, 2)
 texture = ExtResource("1_vm4i8")
+offset = Vector2(0, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_kl0uw")

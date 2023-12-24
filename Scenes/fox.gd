@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 enum{
 	JUMPING,
-	WALKING
+	WALKING,
+	DIGGING
 }
 var state = WALKING
 
@@ -10,6 +11,9 @@ const run_speed = 200
 var is_user_input_blocked: bool = false
 var is_jumping: bool = false
 var direction: Vector2
+var nearby_hole: RabbitHole
+var digging_time = 2.4
+
 @export var speed: float
 
 func _ready():
@@ -25,8 +29,10 @@ func process_user_input():
 	if is_user_input_blocked:
 		return
 	direction = Input.get_vector("Left", "Right", "Up", "Down")			
-		
-	if Input.is_action_pressed("Attack"):
+	
+	if Input.is_action_pressed("Attack") and direction == Vector2.ZERO and nearby_hole:
+		start_dig()
+	elif Input.is_action_pressed("Attack"):
 		start_jump()
 		state = JUMPING
 	
@@ -53,6 +59,19 @@ func end_jump():
 	state=WALKING
 	unblock_user_input()
 
+func start_dig():
+	state = DIGGING
+	$AnimationPlayer.play("digging")
+	is_user_input_blocked = true
+	create_tween().tween_callback(end_dig).set_delay(digging_time)
+	
+	
+func end_dig():
+	state = WALKING
+	is_user_input_blocked = false
+	nearby_hole.kick_out_one()
+
+
 func attack_area():
 	var preys_hit: Array = $AttackArea.get_overlapping_bodies()
 	for prey in preys_hit:
@@ -67,3 +86,11 @@ func block_user_input(duration: float = 1000):
 	
 func unblock_user_input():
 	is_user_input_blocked=false
+
+
+func _on_attack_area_body_entered(body: RabbitHole):
+	nearby_hole = body
+
+
+func _on_attack_area_body_exited(body: RabbitHole):
+	nearby_hole = null

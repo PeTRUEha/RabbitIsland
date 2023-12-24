@@ -1,6 +1,6 @@
 extends Node
 
-func get_closest_body(from: PhysicsBody2D, bodies: Array):
+func get_closest_node(from: Node2D, bodies):
 	var closest = bodies[0]
 	var closest_distance = 10000000
 	for body in bodies:
