@@ -30,7 +30,8 @@ func process_user_input():
 		return
 	direction = Input.get_vector("Left", "Right", "Up", "Down")			
 	
-	if Input.is_action_pressed("Attack") and direction == Vector2.ZERO and nearby_hole:
+	if (Input.is_action_pressed("Attack") and direction == Vector2.ZERO
+		and nearby_hole and nearby_hole.digable):
 		start_dig()
 	elif Input.is_action_pressed("Attack"):
 		start_jump()
@@ -69,7 +70,7 @@ func start_dig():
 func end_dig():
 	state = WALKING
 	is_user_input_blocked = false
-	nearby_hole.kick_out_one()
+	nearby_hole.be_digged()
 
 
 func attack_area():

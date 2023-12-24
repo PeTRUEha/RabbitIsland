@@ -56,6 +56,9 @@ func get_state() -> String:
 
 func go_mating(hole: RabbitHole):
 	$StateMachine.transition_state("MatingState", {'hole': hole})
+	
+func cancel_mating():
+	$StateMachine.transition_state("WaitingState")
 
 func die():
 	$StateMachine.transition_state("DyingState")

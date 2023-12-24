@@ -24,3 +24,5 @@ func enter(args: Dictionary = {}):
 	create_tween().tween_property(sprite, "modulate", Color.TRANSPARENT, 3)
 	create_tween().tween_callback(host.queue_free).set_delay(3)
 	
+func exit():
+	push_error("Cannot exit dying state")
