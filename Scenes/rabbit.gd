@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Rabbit
 
+@export_category("Rabbit")
+
 @export var speed = 100
 @export var acceleration = 2.5
 
@@ -12,6 +14,14 @@ class_name Rabbit
 var boundary_shapes_rid: Array[RID]
 
 signal ready_to_mate(rabbit: Rabbit, rabbit_hole: RabbitHole)
+signal no_longer_mating(rabbit: Rabbit, rabbit_hole: RabbitHole)
+
+func _ready():
+	var rabbit_controller: RabbitController = get_parent()
+	ready_to_mate.connect(rabbit_controller._on_rabbit_ready_to_mate)
+	no_longer_mating.connect(rabbit_controller._on_rabbit_no_longer_mating)
+	$StateMachine.current_state.activate()
+	
 
 func move(direction_vector: Vector2, delta):
 	var direction = direction_vector.normalized() 
@@ -40,6 +50,13 @@ func get_boundary_evasion() -> Vector2:
 			boundary_evasion += coefficient * boundary_to_self_vector.normalized()
 	return boundary_evasion * boundary_evasion_coefficient
 
+
+func get_state() -> String:
+	print($StateMachine.current_state_name)
+	return $StateMachine.current_state_name
+
+func go_mating(hole: RabbitHole):
+	$StateMachine.transition_state("MatingState", {'hole': hole})
 
 func die():
 	$StateMachine.transition_state("DyingState")

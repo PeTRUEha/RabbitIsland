@@ -20,6 +20,10 @@ func _ready():
 		food_detector = host.get_node("FoodDetector")
 
 func enter(args: Dictionary = {}):
+	## calling make_desision next frame
+	create_tween().tween_callback(make_desision).set_delay(0)
+	
+func make_desision():
 	if host.fullness > food_theshold:
 		transition_state("mating_state")
 	elif food_detector.get_overlapping_bodies():
