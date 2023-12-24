@@ -52,7 +52,6 @@ func get_boundary_evasion() -> Vector2:
 
 
 func get_state() -> String:
-	print($StateMachine.current_state_name)
 	return $StateMachine.current_state_name
 
 func go_mating(hole: RabbitHole):

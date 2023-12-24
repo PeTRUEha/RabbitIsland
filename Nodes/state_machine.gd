@@ -14,7 +14,7 @@ func _ready():
 	
 	if not initial_state:
 		initial_state = states.values()[0]
-		current_state_name = states.keys()[0]
+		current_state_name = states.keys()[0].to_snake_case()
 	current_state=initial_state
 	
 
@@ -28,6 +28,6 @@ func _physics_process(delta):
 func transition_state(new_state_name: String, args: Dictionary = {}):
 	current_state.deactivate()
 	current_state = states[new_state_name.to_snake_case()]
-	current_state_name = new_state_name
+	current_state_name = new_state_name.to_snake_case()
 	current_state.activate(args)
 	

@@ -25,6 +25,7 @@ func kick_out_one():
 	var rabbit = residents[-1]
 	residents.erase(rabbit)
 	rabbit_controller.add_child(rabbit)
+	rabbit.get_node("StateMachine").transition_state("waiting_state")
 
 func _try_start_mating():
 	if mating:

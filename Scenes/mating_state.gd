@@ -32,7 +32,7 @@ func enter(args: Dictionary = {}):
 func process(delta):
 	var vector_to_target = target.position - host.position
 	if vector_to_target.length() < distance_to_enter:
-		transition_state("waiting_state")
+		#transition_state("waiting_state")
 		target.let_in(host)
 	
 	host.move(vector_to_target, delta)
