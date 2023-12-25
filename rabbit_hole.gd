@@ -3,7 +3,7 @@ class_name RabbitHole
 
 @export var birth_cost = 40
 @export var mating_length = 5
-@export var rabbit_resource = preload("res://Scenes/rabbit.tscn")
+#@export var rabbit_resource = preload("res://Scenes/rabbit.tscn")
 @export var displacement_amplitude = 0.3
 @onready var base_sprite_position = $Sprite2D.position
 
@@ -79,10 +79,11 @@ func _end_mating():
 	_try_start_mating()
 	
 func _create_new_rabbit():
-	var rabbit = rabbit_resource.instantiate()
-	rabbit.position = Vector2(position.x, position.y)
-	residents.append(rabbit)
-	rabbit_controller.add_child(rabbit)
-	print(rabbit)
-	print(residents)
+	#var rabbit = rabbit_resource.instantiate()
+	#rabbit.position = Vector2(position.x, position.y)
+	#residents.append(rabbit)
+	#rabbit_controller.add_child(rabbit)
+	#print(rabbit)
+	#print(residents)
+	pass
 
