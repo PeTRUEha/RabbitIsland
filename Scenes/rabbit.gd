@@ -6,9 +6,9 @@ class_name Rabbit
 @export var speed = 100
 @export var acceleration = 2.5
 
-@export var eating_time = 0.5
-@export var eating_size = 5
-@export var boundary_evasion_coefficient = 2000
+var eating_time = 0.5
+var eating_size = 5
+var boundary_evasion_coefficient = 2000
 
 @export var fullness = 0
 var boundary_shapes_rid: Array[RID]
