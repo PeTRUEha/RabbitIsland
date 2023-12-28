@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Fox
+
 
 enum{
 	JUMPING,
@@ -15,6 +17,8 @@ var nearby_hole: RabbitHole
 var digging_time = 2.4
 
 @export var speed: float
+signal rabbit_killed
+
 
 func _ready():
 	pass # Replace with function body.
@@ -78,6 +82,8 @@ func attack_area():
 	for prey in preys_hit:
 		if prey.has_method("die"):
 			prey.die()
+			rabbit_killed.emit()
+			
 
 func block_user_input(duration: float = 1000):
 	is_user_input_blocked=true

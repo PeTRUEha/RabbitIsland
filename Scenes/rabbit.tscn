@@ -106,7 +106,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1y50x"]
-radius = 1.5
+radius = 2.5
 height = 10.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_teqon"]
@@ -138,7 +138,6 @@ libraries = {
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1y50x")
 
