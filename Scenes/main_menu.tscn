@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://fj41ct0x7do3"]
+
+[ext_resource type="Texture2D" uid="uid://b0m1gtovushfq" path="res://Assets/Main Menu.png" id="1_8lcwg"]
+[ext_resource type="Theme" uid="uid://x6o87awg7mow" path="res://RabbitIsland.tres" id="2_44kdb"]
+[ext_resource type="Script" path="res://Scenes/Play.gd" id="3_c6b6p"]
+[ext_resource type="Script" path="res://Scripts/UI/Exit.gd" id="3_p4i7l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vvhwq"]
+font_size = 100
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8lcwg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.0470694
+anchor_top = 0.31
+anchor_right = 0.0470694
+anchor_bottom = 1.06174
+offset_left = -0.224007
+offset_top = 0.119995
+offset_right = 143.776
+offset_bottom = -0.00799561
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_44kdb")
+text = "Play"
+script = ExtResource("3_c6b6p")
+
+[node name="Play2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_44kdb")
+text = "Play"
+script = ExtResource("3_c6b6p")
+
+[node name="Play3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_44kdb")
+text = "Play"
+script = ExtResource("3_c6b6p")
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_44kdb")
+text = "Exit
+"
+script = ExtResource("3_p4i7l")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.502
+anchor_right = 0.502
+offset_left = -462.304
+offset_right = 461.696
+offset_bottom = 155.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_44kdb")
+
+[node name="Panel" type="Panel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -460.0
+offset_right = 460.0
+offset_bottom = 154.0
+grow_horizontal = 2
+text = "Rabbit Island"
+label_settings = SubResource("LabelSettings_vvhwq")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play2" to="VBoxContainer/Play2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play3" to="VBoxContainer/Play3" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="VBoxContainer/Exit" method="_on_pressed"]

@@ -13,9 +13,12 @@ func _on_fox_rabbit_killed():
 	score += 1
 	$UI/RabbitCounter.update_rabbits(score)
 
-
-
 func _on_timer_timeout():
 	time_left -= 1
 	$UI/TimeLeft.update_time(time_left)
-	
+
+func _on_fox_can_dig():
+	$UI/FoxCanDig.visible = true
+
+func _on_fox_cant_dig():
+	$UI/FoxCanDig.visible = false

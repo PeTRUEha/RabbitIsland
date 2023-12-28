@@ -23,12 +23,13 @@ func _process(delta):
 		$Sprite2D.position = base_sprite_position + Vector2(horisontal_displacement, veritical_displacement)
 
 func be_digged():
-	print("digging", digable, " ", len(residents) > 0)
 	if residents:
 		kick_out_one()
 	else:
 		digable = false
-		create_tween().tween_property(self, "digable", true, digable_timeout)
+		#create_tween().tween_property(self, "digable", true, digable_timeout)
+		#TODO: this tween has to be interrupted every time status changes
+	#print("digging", " ", digable, " ", len(residents) > 0)
 
 func let_in(rabbit: Rabbit):
 	residents.append(rabbit)
@@ -57,7 +58,6 @@ func _try_start_mating():
 		mating = false
 
 func _ready_to_mate():
-	print(len(residents), " ", _get_fullest_resident().fullness)
 	if len(residents) >= 2 and _get_fullest_resident().fullness >= birth_cost:
 		return true
 	else:
@@ -88,6 +88,5 @@ func _end_mating():
 func _create_new_rabbit():
 	var rabbit: Rabbit = rabbit_resource.instantiate()
 	residents.append(rabbit)
-	print(rabbit)
 	pass
 

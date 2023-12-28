@@ -1,0 +1,66 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://x6o87awg7mow"]
+
+[ext_resource type="FontFile" uid="uid://dleal5n1ccmul" path="res://MinimalPixel v2.ttf" id="1_arc5j"]
+[ext_resource type="Texture2D" uid="uid://ltltthlfba21" path="res://Assets/Sprite sheet for Basic Pack.png" id="2_p1kkk"]
+[ext_resource type="StyleBox" uid="uid://dn51ukn7l3q17" path="res://new_style_box_texture.tres" id="2_pu0hv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vijt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nl528"]
+texture = ExtResource("2_p1kkk")
+texture_margin_left = 4.0
+texture_margin_top = 6.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(259, 178, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e2pra"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("2_p1kkk")
+region_rect = Rect2(259, 178, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ym8fk"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("2_p1kkk")
+region_rect = Rect2(259, 178, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gwfs2"]
+texture = ExtResource("2_p1kkk")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(201, 9, 30, 30)
+
+[resource]
+default_font = ExtResource("1_arc5j")
+default_font_size = 30
+Button/colors/font_color = Color(0.2, 0.388235, 0.141176, 1)
+Button/colors/font_focus_color = Color(0.199765, 0.389325, 0.142444, 1)
+Button/colors/font_hover_color = Color(0.199765, 0.389325, 0.142444, 1)
+Button/colors/font_hover_pressed_color = Color(0.199765, 0.389325, 0.142444, 1)
+Button/colors/font_pressed_color = Color(0.199765, 0.389325, 0.142444, 1)
+Button/fonts/font = ExtResource("1_arc5j")
+Button/styles/focus = SubResource("StyleBoxEmpty_5vijt")
+Button/styles/hover = ExtResource("2_pu0hv")
+Button/styles/normal = ExtResource("2_pu0hv")
+Button/styles/pressed = SubResource("StyleBoxTexture_nl528")
+MenuButton/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+MenuButton/colors/font_disabled_color = Color(1, 1, 1, 0.3)
+MenuButton/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+MenuButton/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+MenuButton/colors/font_outline_color = Color(1, 1, 1, 1)
+MenuButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+MenuButton/constants/h_separation = 4
+MenuButton/constants/outline_size = 0
+MenuButton/font_sizes/font_size = 16
+MenuButton/fonts/font = ExtResource("1_arc5j")
+MenuButton/styles/normal = SubResource("StyleBoxTexture_e2pra")
+MenuButton/styles/pressed = SubResource("StyleBoxTexture_ym8fk")
+Panel/styles/panel = SubResource("StyleBoxTexture_gwfs2")

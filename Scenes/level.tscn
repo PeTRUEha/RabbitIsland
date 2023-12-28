@@ -16799,5 +16799,7 @@ position = Vector2(314, -79)
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="can_dig" from="Fox" to="." method="_on_fox_can_dig"]
+[connection signal="cant_dig" from="Fox" to="." method="_on_fox_cant_dig"]
 [connection signal="rabbit_killed" from="Fox" to="." method="_on_fox_rabbit_killed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
