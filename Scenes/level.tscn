@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvhkqofyuccew"]
+[gd_scene load_steps=13 format=3 uid="uid://dvhkqofyuccew"]
 
 [ext_resource type="Texture2D" uid="uid://d4fgm7phiqyt" path="res://Assets/Tilesets/Blocky_VikingVillage_Tileset.png" id="1_2qh31"]
 [ext_resource type="Script" path="res://Scripts/Level/level.gd" id="1_t6lax"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dkdn8lncemmef" path="res://Scenes/Objects/rabbit_hole.tscn" id="5_7rd2e"]
 [ext_resource type="PackedScene" uid="uid://btbv0eshax4m0" path="res://Scenes/carrot_generator.tscn" id="6_vvysu"]
 [ext_resource type="PackedScene" uid="uid://dw87l2i3m8ufn" path="res://Scenes/ui.tscn" id="8_mygn3"]
+[ext_resource type="PackedScene" uid="uid://dpoqybthsvxc8" path="res://Scenes/pause_menu.tscn" id="10_woym4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0toqv"]
 texture = ExtResource("1_2qh31")
@@ -16798,6 +16799,8 @@ position = Vector2(314, -79)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_woym4")]
 
 [connection signal="can_dig" from="Fox" to="." method="_on_fox_can_dig"]
 [connection signal="cant_dig" from="Fox" to="." method="_on_fox_cant_dig"]
