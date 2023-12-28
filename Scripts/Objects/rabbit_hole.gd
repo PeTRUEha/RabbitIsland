@@ -12,7 +12,7 @@ var digable: bool = true
 var digable_timeout = 20
 @onready var rabbit_controller = $"/root/Level/RabbitController"
 # Called when the node enters the scene tree for the first time.
-var rabbit_resource = load("res://Scenes/rabbit.tscn")
+var rabbit_resource = load("res://Scenes/Objects/rabbit.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

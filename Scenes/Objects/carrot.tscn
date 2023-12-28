@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://df5o7dpavn8t2"]
 
 [ext_resource type="Texture2D" uid="uid://covwvwtk3jvib" path="res://Assets/Plants/white carrot.png" id="1_f5bra"]
-[ext_resource type="Script" path="res://Scenes/carrot.gd" id="1_lbues"]
+[ext_resource type="Script" path="res://Scripts/Objects/carrot.gd" id="1_lbues"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5j4s3"]
 radius = 2.66667

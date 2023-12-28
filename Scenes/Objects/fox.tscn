@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://d2sqdt2iuysy2"]
 
 [ext_resource type="Texture2D" uid="uid://bcoa86iwopwuj" path="res://Assets/Animals/Fox Sprite Sheet.png" id="1_4ve26"]
-[ext_resource type="Script" path="res://Scenes/fox.gd" id="1_pa4se"]
+[ext_resource type="Script" path="res://Scripts/Objects/fox.gd" id="1_pa4se"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4b32"]
 radius = 2.0

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var carrot_resource = preload("res://Scenes/carrot.tscn")
+@export var carrot_resource = load("res://Scenes/Objects/carrot.tscn")
 
 @export var x_range: Vector2
 @export var y_range: Vector2

@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://dvhkqofyuccew"]
 
 [ext_resource type="Texture2D" uid="uid://d4fgm7phiqyt" path="res://Assets/Tilesets/Blocky_VikingVillage_Tileset.png" id="1_2qh31"]
-[ext_resource type="Script" path="res://Scenes/level.gd" id="1_t6lax"]
-[ext_resource type="PackedScene" uid="uid://ci3nbgy5i0f8h" path="res://Scenes/rabbit.tscn" id="2_keywn"]
-[ext_resource type="Script" path="res://Scenes/RabbitController.gd" id="2_qcf14"]
-[ext_resource type="PackedScene" uid="uid://df5o7dpavn8t2" path="res://Scenes/carrot.tscn" id="3_cwfcj"]
-[ext_resource type="PackedScene" uid="uid://d2sqdt2iuysy2" path="res://Scenes/fox.tscn" id="3_hkp15"]
-[ext_resource type="PackedScene" uid="uid://dkdn8lncemmef" path="res://rabbit_hole.tscn" id="5_7rd2e"]
-[ext_resource type="PackedScene" uid="uid://btbv0eshax4m0" path="res://carrot_generator.tscn" id="6_vvysu"]
-[ext_resource type="PackedScene" uid="uid://dw87l2i3m8ufn" path="res://ui.tscn" id="8_mygn3"]
+[ext_resource type="Script" path="res://Scripts/Level/level.gd" id="1_t6lax"]
+[ext_resource type="PackedScene" uid="uid://ci3nbgy5i0f8h" path="res://Scenes/Objects/rabbit.tscn" id="2_keywn"]
+[ext_resource type="Script" path="res://Scripts/Level/RabbitController.gd" id="2_qcf14"]
+[ext_resource type="PackedScene" uid="uid://df5o7dpavn8t2" path="res://Scenes/Objects/carrot.tscn" id="3_cwfcj"]
+[ext_resource type="PackedScene" uid="uid://d2sqdt2iuysy2" path="res://Scenes/Objects/fox.tscn" id="3_hkp15"]
+[ext_resource type="PackedScene" uid="uid://dkdn8lncemmef" path="res://Scenes/Objects/rabbit_hole.tscn" id="5_7rd2e"]
+[ext_resource type="PackedScene" uid="uid://btbv0eshax4m0" path="res://Scenes/carrot_generator.tscn" id="6_vvysu"]
+[ext_resource type="PackedScene" uid="uid://dw87l2i3m8ufn" path="res://Scenes/ui.tscn" id="8_mygn3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0toqv"]
 texture = ExtResource("1_2qh31")

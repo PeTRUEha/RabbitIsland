@@ -1,10 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dw87l2i3m8ufn"]
 
-[ext_resource type="Script" path="res://RabbitCounter.gd" id="1_iuurb"]
+[ext_resource type="Script" path="res://Scripts/UI/RabbitCounter.gd" id="1_iuurb"]
 [ext_resource type="Texture2D" uid="uid://d4ddu8av3vva7" path="res://Assets/rabbit counter.png" id="1_o6kgb"]
-[ext_resource type="Script" path="res://TimeLeft.gd" id="3_lrto6"]
+[ext_resource type="Script" path="res://Scripts/UI/TimeLeft.gd" id="3_lrto6"]
 
 [sub_resource type="SystemFont" id="SystemFont_cakl6"]
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_nrvt7"]
 default_font = SubResource("SystemFont_cakl6")

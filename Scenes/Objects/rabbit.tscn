@@ -1,16 +1,16 @@
 [gd_scene load_steps=22 format=3 uid="uid://ci3nbgy5i0f8h"]
 
-[ext_resource type="Script" path="res://Scenes/rabbit.gd" id="1_87t44"]
-[ext_resource type="Texture2D" uid="uid://bprrufhd88fir" path="res://Assets/Animals/MinifolksForestAnimals/Outline/MiniBunny.png" id="1_k6cj4"]
-[ext_resource type="Script" path="res://Nodes/state_machine.gd" id="1_prml3"]
-[ext_resource type="Script" path="res://Scenes/mating_state.gd" id="4_b6q6b"]
-[ext_resource type="Script" path="res://Nodes/States/thinking_state.gd" id="4_mlxjc"]
-[ext_resource type="Script" path="res://Nodes/States/food_chasing_state.gd" id="5_05awq"]
-[ext_resource type="Script" path="res://Nodes/States/waiting_state.gd" id="5_oj7o4"]
-[ext_resource type="Script" path="res://Nodes/States/eating_state.gd" id="6_marp4"]
-[ext_resource type="Script" path="res://Nodes/States/wandering_state.gd" id="6_tcnj4"]
-[ext_resource type="Script" path="res://Nodes/States/running_away_state.gd" id="7_tp3e0"]
-[ext_resource type="Script" path="res://Nodes/States/dying_state.gd" id="8_f5iss"]
+[ext_resource type="Script" path="res://Scripts/Objects/rabbit.gd" id="1_sabm7"]
+[ext_resource type="Texture2D" uid="uid://bprrufhd88fir" path="res://Assets/Animals/MinifolksForestAnimals/Outline/MiniBunny.png" id="2_a710n"]
+[ext_resource type="Script" path="res://Scripts/State Machine/state_machine.gd" id="3_wxc0o"]
+[ext_resource type="Script" path="res://Scripts/State Machine/States/thinking_state.gd" id="4_lkyct"]
+[ext_resource type="Script" path="res://Scripts/State Machine/States/mating_state.gd" id="5_chu76"]
+[ext_resource type="Script" path="res://Scripts/State Machine/States/waiting_state.gd" id="6_ijsvt"]
+[ext_resource type="Script" path="res://Scripts/State Machine/States/wandering_state.gd" id="7_gxavx"]
+[ext_resource type="Script" path="res://Scripts/State Machine/States/food_chasing_state.gd" id="8_arlds"]
+[ext_resource type="Script" path="res://Scripts/State Machine/States/eating_state.gd" id="9_hsmfw"]
+[ext_resource type="Script" path="res://Scripts/State Machine/States/running_away_state.gd" id="10_hwptd"]
+[ext_resource type="Script" path="res://Scripts/State Machine/States/dying_state.gd" id="11_0rrfg"]
 
 [sub_resource type="Animation" id="Animation_2up4p"]
 length = 0.001
@@ -123,10 +123,10 @@ y_sort_enabled = true
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 30
-script = ExtResource("1_87t44")
+script = ExtResource("1_sabm7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_k6cj4")
+texture = ExtResource("2_a710n")
 offset = Vector2(0, -14)
 hframes = 4
 vframes = 4
@@ -142,31 +142,31 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1y50x")
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("1_prml3")
+script = ExtResource("3_wxc0o")
 
 [node name="ThinkingState" type="Node" parent="StateMachine"]
-script = ExtResource("4_mlxjc")
+script = ExtResource("4_lkyct")
 
 [node name="MatingState" type="Node" parent="StateMachine"]
-script = ExtResource("4_b6q6b")
+script = ExtResource("5_chu76")
 
 [node name="WaitingState" type="Node" parent="StateMachine"]
-script = ExtResource("5_oj7o4")
+script = ExtResource("6_ijsvt")
 
 [node name="WanderingState" type="Node" parent="StateMachine"]
-script = ExtResource("6_tcnj4")
+script = ExtResource("7_gxavx")
 
 [node name="FoodChasingState" type="Node" parent="StateMachine"]
-script = ExtResource("5_05awq")
+script = ExtResource("8_arlds")
 
 [node name="EatingState" type="Node" parent="StateMachine"]
-script = ExtResource("6_marp4")
+script = ExtResource("9_hsmfw")
 
 [node name="RunningAwayState" type="Node" parent="StateMachine"]
-script = ExtResource("7_tp3e0")
+script = ExtResource("10_hwptd")
 
 [node name="DyingState" type="Node" parent="StateMachine"]
-script = ExtResource("8_f5iss")
+script = ExtResource("11_0rrfg")
 
 [node name="FoodDetector" type="Area2D" parent="."]
 visible = false
