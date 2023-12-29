@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqmwktwfjsmfo"]
+
+[ext_resource type="Theme" uid="uid://x6o87awg7mow" path="res://RabbitIsland.tres" id="1_2cdra"]
+[ext_resource type="Script" path="res://Scenes/game_over_menu.gd" id="1_7uakl"]
+[ext_resource type="Texture2D" uid="uid://d4ddu8av3vva7" path="res://Assets/rabbit counter.png" id="2_qdxug"]
+[ext_resource type="Script" path="res://Scripts/UI/Exit.gd" id="2_ubddg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vvhwq"]
+font_size = 50
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_7uakl")
+
+[node name="MenuPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MenuContainer" type="VBoxContainer" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_2cdra")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="MenuPanel/MenuContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MenuPanel/MenuContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -460.0
+offset_right = 460.0
+offset_bottom = 95.0
+grow_horizontal = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_vvhwq")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TimeLeftPanel" type="Panel" parent="MenuPanel/MenuContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TimeLeft" type="Label" parent="MenuPanel/MenuContainer/TimeLeftPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = 5.0
+offset_right = -13.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+text = "Time left: "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ScoreContainer" type="HBoxContainer" parent="MenuPanel/MenuContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MenuPanel/MenuContainer/ScoreContainer"]
+layout_mode = 2
+texture = ExtResource("2_qdxug")
+
+[node name="ScorePanel" type="Panel" parent="MenuPanel/MenuContainer/ScoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Score" type="Label" parent="MenuPanel/MenuContainer/ScoreContainer/ScorePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 55
+text = "666
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MenuPanel/MenuContainer/ScoreContainer"]
+layout_mode = 2
+texture = ExtResource("2_qdxug")
+flip_h = true
+
+[node name="Exit" type="Button" parent="MenuPanel/MenuContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("1_2cdra")
+text = "Exit
+"
+script = ExtResource("2_ubddg")
+
+[node name="AdditionalInfo" type="Label" parent="MenuPanel/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Well Done!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="MenuPanel/MenuContainer/Exit" to="MenuPanel/MenuContainer/Exit" method="_on_pressed"]
