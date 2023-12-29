@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvhkqofyuccew"]
+[gd_scene load_steps=16 format=3 uid="uid://dvhkqofyuccew"]
 
 [ext_resource type="Texture2D" uid="uid://d4fgm7phiqyt" path="res://Assets/Tilesets/Blocky_VikingVillage_Tileset.png" id="1_2qh31"]
 [ext_resource type="Script" path="res://Scripts/Level/level.gd" id="1_t6lax"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dw87l2i3m8ufn" path="res://Scenes/ui.tscn" id="8_mygn3"]
 [ext_resource type="PackedScene" uid="uid://dpoqybthsvxc8" path="res://Scenes/pause_menu.tscn" id="10_woym4"]
 [ext_resource type="Script" path="res://Scenes/HoleController.gd" id="11_0t40j"]
+[ext_resource type="PackedScene" uid="uid://btktirgm21pyp" path="res://music_player.tscn" id="13_uesaw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0toqv"]
 texture = ExtResource("1_2qh31")
@@ -16777,19 +16778,39 @@ y_sort_enabled = true
 script = ExtResource("2_qcf14")
 
 [node name="Rabbit" parent="Level/RabbitController" instance=ExtResource("2_keywn")]
+process_mode = 4
 position = Vector2(7, 63)
+fullness = 200
 
 [node name="Rabbit2" parent="Level/RabbitController" instance=ExtResource("2_keywn")]
-position = Vector2(79, -26)
+process_mode = 4
+position = Vector2(93, 2)
 
 [node name="Rabbit3" parent="Level/RabbitController" instance=ExtResource("2_keywn")]
-position = Vector2(-70, -19)
-fullness = 200
+position = Vector2(-354, -35)
 
 [node name="CarrotController" parent="Level" instance=ExtResource("6_vvysu")]
 
 [node name="Carrot" parent="Level/CarrotController" instance=ExtResource("3_cwfcj")]
-position = Vector2(42, 27)
+position = Vector2(-327, -19)
+
+[node name="Carrot2" parent="Level/CarrotController" instance=ExtResource("3_cwfcj")]
+position = Vector2(-304, -22)
+
+[node name="Carrot3" parent="Level/CarrotController" instance=ExtResource("3_cwfcj")]
+position = Vector2(-281, -27)
+
+[node name="Carrot4" parent="Level/CarrotController" instance=ExtResource("3_cwfcj")]
+position = Vector2(-250, -33)
+
+[node name="Carrot5" parent="Level/CarrotController" instance=ExtResource("3_cwfcj")]
+position = Vector2(-221, -37)
+
+[node name="Carrot6" parent="Level/CarrotController" instance=ExtResource("3_cwfcj")]
+position = Vector2(-182, -39)
+
+[node name="Carrot7" parent="Level/CarrotController" instance=ExtResource("3_cwfcj")]
+position = Vector2(-151, -44)
 
 [node name="Landscape" type="TileMap" parent="Level"]
 tile_set = SubResource("TileSet_dj6cv")
@@ -16814,6 +16835,8 @@ position = Vector2(-157, -158)
 
 [node name="RabbitHole3" parent="Level/HoleController" instance=ExtResource("5_7rd2e")]
 position = Vector2(314, -79)
+
+[node name="MusicPlayer" parent="." instance=ExtResource("13_uesaw")]
 
 [connection signal="game_over" from="Level" to="GameOverMenu" method="_on_level_game_over"]
 [connection signal="can_dig" from="Level/Fox" to="Level" method="_on_fox_can_dig"]

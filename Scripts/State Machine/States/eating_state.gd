@@ -5,6 +5,7 @@ class_name EatingState
 @export var machine: StateMachine
 @export var animation_player: AnimationPlayer
 @export var food_detector: Area2D
+@onready var audio_stream_player_2d = $"../../EatingSound"
 
 var target
 # Called when the node enters the scene tree for the first time.
@@ -21,9 +22,11 @@ func _ready():
 func enter(args: Dictionary = {}):
 	target = args['target']
 	target.be_eaten()
+	audio_stream_player_2d.stream_paused = false
 	var tween = create_tween().tween_callback(finish_eating).set_delay(host.eating_time)
 	
 func finish_eating():
+	audio_stream_player_2d.stream_paused = true
 	if active and is_instance_valid(target):
 		target.decrease_food(host.eating_size)
 		host.fullness += host.eating_size

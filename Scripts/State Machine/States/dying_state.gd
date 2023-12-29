@@ -7,6 +7,7 @@ class_name DyingState
 @export var sprite: Sprite2D
 
 @export var dying_time = 3
+@onready var hurt_sound = $"../../HurtSound"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +24,7 @@ func enter(args: Dictionary = {}):
 	animation_player.play("dying")
 	create_tween().tween_property(sprite, "modulate", Color.TRANSPARENT, 3)
 	create_tween().tween_callback(host.queue_free).set_delay(3)
+	hurt_sound.play()
 	
 func exit():
 	push_error("Cannot exit dying state")

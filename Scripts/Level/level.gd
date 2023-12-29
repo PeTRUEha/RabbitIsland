@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player: Fox = get_tree().get_nodes_in_group("player")[0]
 var score = 0
-var time_left = 60 * 5
+var time_left = 60 * 3
 
 signal game_over(score: int, additinal_info: String, time_left: int)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,7 +24,6 @@ func _on_timer_timeout():
 		get_tree().paused = true
 	
 	var rabbits_left = len(get_tree().get_nodes_in_group("rabbit")) + $HoleController.get_hidden_rabbit_conut()
-	print(rabbits_left)
 	if not rabbits_left:
 		var text = "All rabbits have periched. You now succumb to the evil carrot powers."
 		if score < 20:

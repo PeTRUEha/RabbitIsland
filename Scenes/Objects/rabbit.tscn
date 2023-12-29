@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ci3nbgy5i0f8h"]
+[gd_scene load_steps=25 format=3 uid="uid://ci3nbgy5i0f8h"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/rabbit.gd" id="1_sabm7"]
 [ext_resource type="Texture2D" uid="uid://bprrufhd88fir" path="res://Assets/Animals/MinifolksForestAnimals/Outline/MiniBunny.png" id="2_a710n"]
@@ -11,6 +11,9 @@
 [ext_resource type="Script" path="res://Scripts/State Machine/States/eating_state.gd" id="9_hsmfw"]
 [ext_resource type="Script" path="res://Scripts/State Machine/States/running_away_state.gd" id="10_hwptd"]
 [ext_resource type="Script" path="res://Scripts/State Machine/States/dying_state.gd" id="11_0rrfg"]
+[ext_resource type="AudioStream" uid="uid://cpqv1mcaftr8r" path="res://Audio/the-sound-of-chewing-vegetables.mp3" id="12_7gf60"]
+[ext_resource type="Script" path="res://Scenes/Objects/AudioStreamPlayer2D.gd" id="13_y5agu"]
+[ext_resource type="AudioStream" uid="uid://bxiw86hsns5fx" path="res://Audio/hitHurt (1).wav" id="14_b0ogc"]
 
 [sub_resource type="Animation" id="Animation_2up4p"]
 length = 0.001
@@ -177,7 +180,6 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_teqon")
 
 [node name="PredatorDetector" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PredatorDetector"]
@@ -190,6 +192,16 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryDetector"]
 shape = SubResource("CircleShape2D_1uy43")
+
+[node name="EatingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_7gf60")
+volume_db = 18.829
+max_distance = 500.0
+bus = &"SFX"
+script = ExtResource("13_y5agu")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_b0ogc")
 
 [connection signal="body_entered" from="PredatorDetector" to="." method="_on_predator_detector_body_entered"]
 [connection signal="body_shape_entered" from="BoundaryDetector" to="." method="_on_boundary_detector_body_shape_entered"]
