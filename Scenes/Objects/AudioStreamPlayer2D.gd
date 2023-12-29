@@ -1,11 +1,10 @@
 extends AudioStreamPlayer2D
 
-
+@onready var last_position = get_playback_position()
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	playing = true
-	create_tween().tween_callback(func(): stream_paused=true).set_delay(0)
+func play_from_last_position():
+	play(last_position)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-		print("playing ", playing, "\nstream_paused ", stream_paused, "\n")
+func stop_on_current_position():
+	last_position = get_playback_position()
+	stop()

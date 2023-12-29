@@ -202,6 +202,7 @@ script = ExtResource("13_y5agu")
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_b0ogc")
+volume_db = 10.121
 
 [connection signal="body_entered" from="PredatorDetector" to="." method="_on_predator_detector_body_entered"]
 [connection signal="body_shape_entered" from="BoundaryDetector" to="." method="_on_boundary_detector_body_shape_entered"]

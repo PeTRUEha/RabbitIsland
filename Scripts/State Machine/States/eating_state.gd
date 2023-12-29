@@ -22,11 +22,11 @@ func _ready():
 func enter(args: Dictionary = {}):
 	target = args['target']
 	target.be_eaten()
-	audio_stream_player_2d.stream_paused = false
+	audio_stream_player_2d.play_from_last_position()
 	var tween = create_tween().tween_callback(finish_eating).set_delay(host.eating_time)
 	
 func finish_eating():
-	audio_stream_player_2d.stream_paused = true
+	audio_stream_player_2d.stop_on_current_position()
 	if active and is_instance_valid(target):
 		target.decrease_food(host.eating_size)
 		host.fullness += host.eating_size

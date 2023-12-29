@@ -19,13 +19,16 @@ func _on_timer_timeout():
 	time_left -= 1
 	$UI/Panel2/TimeLeft.update_time(time_left)
 	
-	if time_left < 0:
-		game_over.emit(score, "", time_left)
+	var text = ""
+	if time_left < 1:
+		if score < 20:
+			text = "You can do better."
+		game_over.emit(score, text, time_left)
 		get_tree().paused = true
 	
 	var rabbits_left = len(get_tree().get_nodes_in_group("rabbit")) + $HoleController.get_hidden_rabbit_conut()
 	if not rabbits_left:
-		var text = "All rabbits have periched. You now succumb to the evil carrot powers."
+		text = "All rabbits have periched. You now succumb to the evil carrot powers."
 		if score < 20:
 			text += "\nYou can do better."
 		game_over.emit(score, text, time_left)

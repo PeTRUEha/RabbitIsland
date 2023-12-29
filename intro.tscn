@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbydl34ka8h1s"]
+
+[ext_resource type="Theme" uid="uid://x6o87awg7mow" path="res://RabbitIsland.tres" id="1_0wr7a"]
+[ext_resource type="Script" path="res://intro.gd" id="1_w6a1j"]
+
+[node name="Intro" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_w6a1j")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -300.0
+offset_right = 250.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0wr7a")
+text = "This land is being infested.
+You have only 3 minutes.
+
+Use WASD to move.
+
+SPACE to attack/dig.
+
+Catch as many rabbits as you can, while Mighty Carrot God blesses the soil.
+
+press SPACE to start.
+"
+autowrap_mode = 3

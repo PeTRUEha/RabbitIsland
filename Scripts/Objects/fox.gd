@@ -80,12 +80,14 @@ func end_jump():
 func start_dig():
 	state = DIGGING
 	$AnimationPlayer.play("digging")
+	$Dig.play()
 	is_user_input_blocked = true
 	create_tween().tween_callback(end_dig).set_delay(digging_time)
 	
 	
 func end_dig():
 	state = WALKING
+	$Dig.stop()
 	is_user_input_blocked = false
 	nearby_hole.be_digged()
 

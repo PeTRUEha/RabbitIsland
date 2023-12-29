@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-func _shortcut_input(event: InputEvent):
+func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):
 		var tree = get_tree()
 		tree.paused = not tree.paused
