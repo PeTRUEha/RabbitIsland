@@ -11,4 +11,10 @@ func get_closest_node(from: Node2D, bodies):
 	return closest
 
 
+func format_time(time: int) -> String:
+	var minutes = int(time / 60)
+	var seconds = str(time % 60)
+	if len(seconds) == 1:
+		seconds = '0' + seconds
+	return str(minutes, ":", seconds)
 

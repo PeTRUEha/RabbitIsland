@@ -2,55 +2,18 @@
 
 [ext_resource type="Script" path="res://Scripts/UI/RabbitCounter.gd" id="1_iuurb"]
 [ext_resource type="Texture2D" uid="uid://d4ddu8av3vva7" path="res://Assets/rabbit counter.png" id="1_o6kgb"]
+[ext_resource type="Theme" uid="uid://x6o87awg7mow" path="res://RabbitIsland.tres" id="3_lfmht"]
 [ext_resource type="Script" path="res://Scripts/UI/TimeLeft.gd" id="3_lrto6"]
 [ext_resource type="Script" path="res://Scenes/Label.gd" id="4_6bard"]
-
-[sub_resource type="SystemFont" id="SystemFont_cakl6"]
-subpixel_positioning = 0
-
-[sub_resource type="Theme" id="Theme_nrvt7"]
-default_font = SubResource("SystemFont_cakl6")
-default_font_size = 50
-
-[sub_resource type="Theme" id="Theme_77v6g"]
-default_font_size = 50
+[ext_resource type="FontFile" uid="uid://dleal5n1ccmul" path="res://MinimalPixel v2.ttf" id="5_ss5fw"]
 
 [sub_resource type="Theme" id="Theme_aec4j"]
 default_font_size = 40
 
+[sub_resource type="Theme" id="Theme_77v6g"]
+default_font_size = 50
+
 [node name="UI" type="CanvasLayer"]
-
-[node name="RabbitCounter" type="BoxContainer" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -123.0
-offset_right = 212.0
-grow_vertical = 0
-script = ExtResource("1_iuurb")
-
-[node name="TextureRect" type="TextureRect" parent="RabbitCounter"]
-layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("1_o6kgb")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="RabbitCounter"]
-layout_mode = 2
-theme = SubResource("Theme_nrvt7")
-text = "0"
-
-[node name="TimeLeft" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -35.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme = SubResource("Theme_77v6g")
-text = "0:00"
-script = ExtResource("3_lrto6")
 
 [node name="FoxCanDig" type="Label" parent="."]
 anchors_preset = 7
@@ -66,3 +29,66 @@ grow_vertical = 0
 theme = SubResource("Theme_aec4j")
 text = "Press \"Space\" to dig"
 script = ExtResource("4_6bard")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -129.0
+offset_right = 206.0
+offset_bottom = 8.0
+grow_vertical = 0
+theme = ExtResource("3_lfmht")
+metadata/_edit_use_anchors_ = true
+
+[node name="RabbitCounter" type="BoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -131.0
+offset_right = 233.0
+offset_bottom = -8.0
+grow_vertical = 0
+theme = ExtResource("3_lfmht")
+script = ExtResource("1_iuurb")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/RabbitCounter"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_o6kgb")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Panel/RabbitCounter"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ss5fw")
+theme_override_font_sizes/font_size = 70
+text = "0"
+
+[node name="Panel2" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_top = -9.0
+offset_right = 10.0
+offset_bottom = 67.0
+grow_horizontal = 0
+theme = ExtResource("3_lfmht")
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeLeft" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_77v6g")
+text = "0:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_lrto6")

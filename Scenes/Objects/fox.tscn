@@ -183,6 +183,7 @@ libraries = {
 autoplay = "idle 2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
 visible = false
 zoom = Vector2(3, 3)
 

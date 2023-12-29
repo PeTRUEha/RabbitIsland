@@ -10,7 +10,7 @@ var residents: Array[Rabbit] = []
 var mating: bool = false
 var digable: bool = true
 var digable_timeout = 20
-@onready var rabbit_controller = $"/root/Level/RabbitController"
+@onready var rabbit_controller = $"/root/Game/Level/RabbitController"
 # Called when the node enters the scene tree for the first time.
 var rabbit_resource = load("res://Scenes/Objects/rabbit.tscn")
 

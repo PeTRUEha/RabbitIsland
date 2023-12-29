@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpoqybthsvxc8"]
+[gd_scene load_steps=5 format=3 uid="uid://dpoqybthsvxc8"]
 
+[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_0pcvo"]
 [ext_resource type="Theme" uid="uid://x6o87awg7mow" path="res://RabbitIsland.tres" id="2_t0oek"]
 [ext_resource type="Script" path="res://Scripts/UI/Exit.gd" id="4_ikc2k"]
 
@@ -7,9 +8,11 @@
 font_size = 50
 
 [node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_0pcvo")
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -71,5 +74,5 @@ text = "Exit
 "
 script = ExtResource("4_ikc2k")
 
-[connection signal="pressed" from="Panel/VBoxContainer/Contitue" to="Panel/VBoxContainer/Contitue" method="_on_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Contitue" to="." method="_on_contitue_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Exit" to="Panel/VBoxContainer/Exit" method="_on_pressed"]

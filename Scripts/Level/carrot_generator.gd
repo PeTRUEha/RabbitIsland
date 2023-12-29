@@ -6,7 +6,7 @@ extends Node2D
 @export var y_range: Vector2
 
 func _ready():
-	var tilemap: TileMap = get_node("/root/Level/Landscape")
+	var tilemap: TileMap = get_node("/root/Game/Level/Landscape")
 	var tilemap_rect = tilemap.get_used_rect()
 	var top_left = tilemap.map_to_local(tilemap_rect.position)
 	var bottom_right = tilemap.map_to_local(

@@ -4,18 +4,35 @@ extends Node2D
 var score = 0
 var time_left = 60 * 5
 
+signal game_over(score: int, additinal_info: String, time_left: int)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
-	$UI/TimeLeft.update_time(time_left)
-	$UI/RabbitCounter.update_rabbits(score)
+	$UI/Panel2/TimeLeft.update_time(time_left)
+	$UI/Panel/RabbitCounter.update_rabbits(score)
 
 func _on_fox_rabbit_killed():
 	score += 1
-	$UI/RabbitCounter.update_rabbits(score)
+	$UI/Panel/RabbitCounter.update_rabbits(score)
+		
 
 func _on_timer_timeout():
 	time_left -= 1
-	$UI/TimeLeft.update_time(time_left)
+	$UI/Panel2/TimeLeft.update_time(time_left)
+	
+	if time_left < 0:
+		game_over.emit(score, "", time_left)
+		get_tree().paused = true
+	
+	var rabbits_left = len(get_tree().get_nodes_in_group("rabbit")) + $HoleController.get_hidden_rabbit_conut()
+	print(rabbits_left)
+	if not rabbits_left:
+		var text = "All rabbits have periched. You now succumb to the evil carrot powers."
+		if score < 20:
+			text += "\nYou can do better."
+		game_over.emit(score, text, time_left)
+		get_tree().paused = true
+		$CarrotController/Timer.wait_time = 0.01
+		$CarrotController.process_mode = PROCESS_MODE_WHEN_PAUSED
 
 func _on_fox_can_dig():
 	$UI/FoxCanDig.visible = true
